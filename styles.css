@@ -333,6 +333,15 @@ td{
     display: none;
 }
 
+#mensajedos{
+    background-color: #e79b96;
+    color: #d30f0f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: none;
+}
+
 
 .info-tp{
     text-align:left;
