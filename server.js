@@ -663,7 +663,7 @@ app.post(
 
             return res.status(401).json({
                 mensaje:
-                "ContraseÃ±a incorrecta"
+                "Contraseña incorrecta"
             });
 
         }
@@ -687,3 +687,4 @@ app.listen(PORT, ()=>{
     );
 
 });
+

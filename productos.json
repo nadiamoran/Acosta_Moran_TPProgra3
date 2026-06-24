@@ -5,7 +5,7 @@
     "categoria": "Hardware",
     "precio": 650000,
     "imagen": "productos-imagenes/rtx5070.jpg",
-    "activo": false
+    "activo": true
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "categoria": "Hardware",
     "precio": 380000,
     "imagen": "productos-imagenes/ryzen7.jpg",
-    "activo": false
+    "activo": true
   },
   {
     "id": 3,
@@ -37,7 +37,7 @@
     "categoria": "Hardware",
     "precio": 180000,
     "imagen": "productos-imagenes/motherboard.jpg",
-    "activo": true
+    "activo": false
   },
   {
     "id": 6,
@@ -101,7 +101,7 @@
     "categoria": "Hardware",
     "precio": 25000,
     "imagen": "productos-imagenes/mouse.jpg",
-    "activo": false
+    "activo": true
   },
   {
     "id": 1782273139855,

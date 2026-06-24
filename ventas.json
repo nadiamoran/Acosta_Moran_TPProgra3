@@ -121,5 +121,384 @@
         "cantidad": 1
       }
     ]
+  },
+  {
+    "id": 1782283372987,
+    "cliente": "Moran",
+    "fecha": "24/6/2026, 3:42:50",
+    "total": 45000,
+    "productos": [
+      {
+        "nombre": "Microsoft Office 365",
+        "precio": 45000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782313898974,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 12:11:27",
+    "total": 1805000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "Motherboard B550",
+        "precio": 180000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Fuente 750W Certificada",
+        "precio": 120000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "SSD Kingston 1TB",
+        "precio": 95000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782316659586,
+    "cliente": "Americo Nicolas",
+    "fecha": "24/6/2026, 12:57:37",
+    "total": 1910000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 3
+      },
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Fuente 750W Certificada",
+        "precio": 120000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782316662499,
+    "cliente": "Americo Nicolas",
+    "fecha": "24/6/2026, 12:57:37",
+    "total": 1910000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 3
+      },
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Fuente 750W Certificada",
+        "precio": 120000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782316663049,
+    "cliente": "Americo Nicolas",
+    "fecha": "24/6/2026, 12:57:37",
+    "total": 1910000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 3
+      },
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Fuente 750W Certificada",
+        "precio": 120000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782316663215,
+    "cliente": "Americo Nicolas",
+    "fecha": "24/6/2026, 12:57:37",
+    "total": 1910000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 3
+      },
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Fuente 750W Certificada",
+        "precio": 120000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782316794594,
+    "cliente": "Americo Nicolas",
+    "fecha": "24/6/2026, 12:57:37",
+    "total": 1910000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 3
+      },
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Fuente 750W Certificada",
+        "precio": 120000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782317009509,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 13:03:27",
+    "total": 1505000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "SSD Kingston 1TB",
+        "precio": 95000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782317742268,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 13:03:27",
+    "total": 1505000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "SSD Kingston 1TB",
+        "precio": 95000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782320598411,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 14:03:12",
+    "total": 1300000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 1782320635322,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 14:03:54",
+    "total": 1300000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 1782320933874,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 14:08:52",
+    "total": 1410000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 1782321191098,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 14:13:09",
+    "total": 1410000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 1782321323765,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 14:15:22",
+    "total": 1410000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 1782321516635,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 14:18:35",
+    "total": 1410000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 1782321907759,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 14:25:00",
+    "total": 1410000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 1782321988243,
+    "cliente": "Arturo Don",
+    "fecha": "24/6/2026, 14:25:54",
+    "total": 870000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Mouse Gamer",
+        "precio": 25000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "Windows 11 Pro",
+        "precio": 80000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Microsoft Office 365",
+        "precio": 45000,
+        "cantidad": 8
+      }
+    ]
+  },
+  {
+    "id": 1782322812215,
+    "cliente": "Arturo Don",
+    "fecha": "24/6/2026, 14:39:56",
+    "total": 870000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Mouse Gamer",
+        "precio": 25000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "Windows 11 Pro",
+        "precio": 80000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Microsoft Office 365",
+        "precio": 45000,
+        "cantidad": 8
+      }
+    ]
   }
 ]

@@ -1,5 +1,5 @@
 // LOGIN
-
+/*
 const btnLogin =
     document.getElementById(
         "btnLogin"
@@ -42,7 +42,7 @@ if (btnLogin) {
     );
 
 }
-
+*/
 // PRODUCTOS
 
 let productosAdmin =

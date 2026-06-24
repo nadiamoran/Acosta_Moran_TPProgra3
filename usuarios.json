@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 1782283018002,
+    "usuario": "nadia",
+    "password": "$2b$10$hNX/60IYDES5aVAyLyViLeH7RSJDm6tGLexchAfo7LJpBsq0EVJNi"
+  },
+  {
+    "id": 1782308142877,
+    "usuario": "nadia",
+    "password": "$2b$10$qfTeY5tb1LLlTM6mX4MNdOw2NEYXnqdh7ovacHfi0FFPqjuYyEqCy"
+  },
+  {
+    "id": 1782308151583,
+    "usuario": "admin@nntech.com",
+    "password": "$2b$10$xufJzzE4XF0LcYkFNCrwbe0.2cgLEa.648vUsnQ2UXWM2Wxu5gvHC"
+  },
+  {
+    "id": 1782308167722,
+    "usuario": "admin",
+    "password": "$2b$10$CFwT4CDPvXGDBpM4Ou/4JeOazAiEaBl6n4.mHtm/Imkfh1yKfqkwe"
+  }
+]

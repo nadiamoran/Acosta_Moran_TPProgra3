@@ -16,6 +16,35 @@ header{
     text-align:center;
 }
 
+p {
+    line-height: 1.6;
+}
+
+
+.carrito-link {
+    top: 150px;
+    right: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: #0d5db8;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.carrito-link:hover {
+
+    background-color: #218838;
+
+
+}
+
+
+.logo {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto;
+}
 main{
     padding:20px;
 }
@@ -26,6 +55,9 @@ h1,h2{
 
 button{
     padding:10px 15px;
+    margin-right:10px;
+    margin-top:10px;
+    margin-bottom:10px;
     cursor:pointer;
     border:none;
     background-color:#1e3a8a;
@@ -45,7 +77,7 @@ select{
 }
 
 nav{
-    margin-top:10px;
+    margin-top:0px;
 }
 
 nav a{
@@ -63,12 +95,33 @@ nav a{
 }
 
 .card{
+    
     background:white;
     border:1px solid #ccc;
     border-radius:10px;
     padding:15px;
     margin-bottom:15px;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
 }
+
+.card:hover{
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 8px 20px rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+}
+
 
 .card img{
     width:100%;
@@ -76,25 +129,44 @@ nav a{
     object-fit:cover;
 }
 
+#producto{
+   display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
 .productos{
-    display:flex;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
     flex-wrap:wrap;
     gap:20px;
+
 }
 
 .producto{
-    width:250px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    padding:15px;
-    background:white;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+
+.producto:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
 }
 
 .producto img{
     width:100%;
-    height:180px;
+    height:auto;
+    border-radius:10px;
+    cursor:pointer;
     object-fit:cover;
 }
+
+
 
 .ticket{
     background:white;

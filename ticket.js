@@ -1,4 +1,3 @@
-ticket con GuardarVentas OK
 const cliente =
     localStorage.getItem("cliente");
 
@@ -76,23 +75,16 @@ async function cargarTicket() {
             });
 
             contenedor.innerHTML += `
-
-            <p>
-
-            ${producto.nombre}
-
-            x
-
-            ${item.cantidad}
-
-            =
-
-            $${subtotal.toLocaleString()}
-
-            </p>
-
             <br>
-
+            <p>
+            ${producto.nombre}
+            - $${producto.precio.toLocaleString()} 
+            x
+            ${item.cantidad}
+            =
+            $${subtotal.toLocaleString()}
+            </p>
+            <br>
             `;
         }
 
@@ -100,11 +92,13 @@ async function cargarTicket() {
 
     document.getElementById(
         "total-ticket"
-    ).textContent =
+    ).textContent = 
+    
 
         "Total: $" +
 
         subtotalGeneral.toLocaleString();
+        
 
 }
 
