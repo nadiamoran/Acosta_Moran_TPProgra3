@@ -2,11 +2,15 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticket - N&N Tech</title>
+
+    <title>Ticket</title>
 
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -15,27 +19,21 @@
 
         <h1>N&N Tech</h1>
 
-        <nav>
-            <a href="productos.html">Productos</a>
-            <a href="carrito.html">Carrito</a>
-            <a href="ticket.html">Ticket</a>
-        </nav>
-
     </header>
 
     <main>
 
-        <section class="ticket">
+        <div class="container ticket">
 
-            <h2>Ticket de Compra</h2>
+            <h2>Ticket</h2>
 
             <p>
-                <strong>Cliente:</strong>
+                Cliente:
                 <span id="cliente"></span>
             </p>
 
             <p>
-                <strong>Fecha:</strong>
+                Fecha:
                 <span id="fecha"></span>
             </p>
 
@@ -48,16 +46,24 @@
             <hr>
 
             <h3 id="total-ticket">
-                Total: $0
+
             </h3>
+
+            <br>
+
+            <button id="btnPDF">
+                Descargar factura PDF
+            </button>
 
             <button id="btnSalir">
                 Salir
             </button>
 
-        </section>
+        </div>
 
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script src="ticket.js"></script>
 

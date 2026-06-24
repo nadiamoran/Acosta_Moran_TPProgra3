@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "nombre": "RTX 5070",
+    "categoria": "Hardware",
+    "precio": 650000,
+    "imagen": "productos-imagenes/rtx5070.jpg",
+    "activo": false
+  },
+  {
+    "id": 2,
+    "nombre": "Ryzen 7 5800X",
+    "categoria": "Hardware",
+    "precio": 380000,
+    "imagen": "productos-imagenes/ryzen7.jpg",
+    "activo": false
+  },
+  {
+    "id": 3,
+    "nombre": "Memoria RAM 16GB DDR4",
+    "categoria": "Hardware",
+    "precio": 85000,
+    "imagen": "productos-imagenes/ram.jpg",
+    "activo": false
+  },
+  {
+    "id": 4,
+    "nombre": "SSD Kingston 1TB",
+    "categoria": "Hardware",
+    "precio": 95000,
+    "imagen": "productos-imagenes/ssd.jpg",
+    "activo": true
+  },
+  {
+    "id": 5,
+    "nombre": "Motherboard B550",
+    "categoria": "Hardware",
+    "precio": 180000,
+    "imagen": "productos-imagenes/motherboard.jpg",
+    "activo": true
+  },
+  {
+    "id": 6,
+    "nombre": "Fuente 750W Certificada",
+    "categoria": "Hardware",
+    "precio": 120000,
+    "imagen": "productos-imagenes/fuente.jpg",
+    "activo": true
+  },
+  {
+    "id": 7,
+    "nombre": "Windows 11 Pro",
+    "categoria": "Software",
+    "precio": 80000,
+    "imagen": "productos-imagenes/windows11.jpg",
+    "activo": true
+  },
+  {
+    "id": 8,
+    "nombre": "Microsoft Office 365",
+    "categoria": "Software",
+    "precio": 45000,
+    "imagen": "productos-imagenes/office365.jpg",
+    "activo": true
+  },
+  {
+    "id": 9,
+    "nombre": "Adobe Photoshop",
+    "categoria": "Software",
+    "precio": 60000,
+    "imagen": "productos-imagenes/photoshop.jpg",
+    "activo": false
+  },
+  {
+    "id": 10,
+    "nombre": "Visual Studio Professional",
+    "categoria": "Software",
+    "precio": 70000,
+    "imagen": "productos-imagenes/visualstudio.jpg",
+    "activo": false
+  },
+  {
+    "id": 11,
+    "nombre": "Antivirus ESET",
+    "categoria": "Software",
+    "precio": 25000,
+    "imagen": "productos-imagenes/eset.jpg",
+    "activo": false
+  },
+  {
+    "id": 12,
+    "nombre": "WinRAR Licencia",
+    "categoria": "Software",
+    "precio": 15000,
+    "imagen": "productos-imagenes/winrar.jpg",
+    "activo": false
+  },
+  {
+    "id": 1782266875714,
+    "nombre": "Mouse Gamer",
+    "categoria": "Hardware",
+    "precio": 25000,
+    "imagen": "productos-imagenes/mouse.jpg",
+    "activo": false
+  },
+  {
+    "id": 1782273139855,
+    "nombre": "asda",
+    "categoria": "asd",
+    "precio": 555,
+    "activo": false
+  },
+  {
+    "id": 1782273336254,
+    "nombre": "RAM",
+    "categoria": "Hardware",
+    "precio": 150,
+    "activo": false
+  },
+  {
+    "id": 1782274713983,
+    "nombre": "Teclado inalamabrico",
+    "categoria": "Hardware",
+    "precio": 255000,
+    "activo": false
+  },
+  {
+    "id": 1782275227503,
+    "nombre": "Microprocesador",
+    "categoria": "Hardware",
+    "precio": 10000000,
+    "activo": false
+  }
+]

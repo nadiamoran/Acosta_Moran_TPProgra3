@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Nuevo Producto - N&N Tech</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>N&N Tech</h1>
+
+        <nav>
+
+            <a href="productos.html">
+                Productos
+            </a>
+
+            <a href="dashboard.html">
+                Administración
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <h2>Alta de Producto</h2>
+
+            <form id="formProducto">
+
+                <label for="nombre">
+                    Nombre del Producto
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Ej: RTX 5070"
+                    required
+                >
+
+                <label for="categoria">
+                    Categoría
+                </label>
+
+                <select
+                    id="categoria"
+                    required
+                >
+
+                    <option value="">
+                        Seleccionar
+                    </option>
+
+                    <option value="Hardware">
+                        Hardware
+                    </option>
+
+                    <option value="Software">
+                        Software
+                    </option>
+
+                </select>
+
+                <label for="precio">
+                    Precio
+                </label>
+
+                <input
+                    type="number"
+                    id="precio"
+                    placeholder="Ej: 250000"
+                    required
+                >
+
+                <label for="imagen">
+                    Ruta de Imagen
+                </label>
+
+                <input
+                    type="text"
+                    id="imagen"
+                    placeholder="productos-imagenes/rtx5070.jpg"
+                    required
+                >
+
+                <br>
+
+                <button type="submit">
+                    Guardar Producto
+                </button>
+                <button type="submit">
+                    
+                        <a href="dashboard.html">Atrás</a>   
+                     
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <script src="producto-form.js"></script>
+
+</body>
+
+</html>

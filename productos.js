@@ -1,124 +1,101 @@
-const productos = [
-
-    {
-        id: 1,
-        nombre: "RTX 4060",
-        categoria: "Hardware",
-        precio: 450000,
-        imagen: "https://picsum.photos/300?1",
-        descripcion: "Placa de video RTX 4060."
-    },
-
-    {
-        id: 2,
-        nombre: "Ryzen 7",
-        categoria: "Hardware",
-        precio: 380000,
-        imagen: "https://picsum.photos/300?2",
-        descripcion: "Procesador AMD Ryzen 7."
-    },
-
-    {
-        id: 3,
-        nombre: "Windows 11 Pro",
-        categoria: "Software",
-        precio: 80000,
-        imagen: "https://picsum.photos/300?3",
-        descripcion: "Licencia Windows 11."
-    },
-
-    {
-        id: 4,
-        nombre: "Office 365",
-        categoria: "Software",
-        precio: 45000,
-        imagen: "https://picsum.photos/300?4",
-        descripcion: "Paquete Office."
-    }
-
-];
-
-localStorage.setItem(
-    "productos",
-    JSON.stringify(productos)
-);
-
-const cliente =
-    localStorage.getItem("cliente");
-
-const saludo =
-    document.getElementById("saludo");
-
-if (saludo) {
-
-    saludo.textContent =
-        "Bienvenido/a " + cliente;
-
-}
-
-let carrito =
-    JSON.parse(localStorage.getItem("carrito"))
-    || [];
-
 const hardware =
-    document.getElementById("hardware");
+document.getElementById("hardware");
 
 const software =
-    document.getElementById("software");
+document.getElementById("software");
 
-productos.forEach(producto => {
+fetch("http://localhost:3000/api/productos")
+.then(res => res.json())
+.then(productos => {
+    console.log(productos);
 
-    const tarjeta = `
+    mostrarProductos(
+    productos.filter(
+        p => p.activo
+    )
+);
 
-<div class="producto">
+})
+.catch(error => {
 
-<img src="${producto.imagen}">
-
-<h4>${producto.nombre}</h4>
-
-<p>$${producto.precio}</p>
-
-<button onclick="verDetalle(${producto.id})">
-Ver detalle
-</button>
-
-<button onclick="agregarProducto(${producto.id})">
-Agregar
-</button>
-
-</div>
-
-`;
-
-    if (producto.categoria === "Hardware") {
-
-        hardware.innerHTML += tarjeta;
-
-    } else {
-
-        software.innerHTML += tarjeta;
-
-    }
+    console.log(error);
 
 });
 
-function agregarProducto(id) {
+function mostrarProductos(productos){
 
-    const producto =
-        productos.find(p => p.id === id);
+    hardware.innerHTML = "";
+    software.innerHTML = "";
 
-    const existe =
-        carrito.find(p => p.id === id);
+    productos
+.filter(
+    producto => producto.activo
+)
+.forEach(producto => {
 
-    if (existe) {
+        const tarjeta = `
 
-        existe.cantidad++;
+        <div class="card">
 
-    } else {
+            <img
+                src="${producto.imagen}"
+                alt="${producto.nombre}"
+                class="imagen-producto"
+            >
+
+            <h3>${producto.nombre}</h3>
+
+            <p>${producto.categoria}</p>
+
+            <p>$${producto.precio}</p>
+
+            <button
+                onclick="agregarCarrito(${producto.id})"
+            >
+                Agregar al carrito
+            </button>
+
+        </div>
+
+        `;
+
+        if(producto.categoria === "Hardware"){
+
+            hardware.innerHTML += tarjeta;
+
+        }
+
+        if(producto.categoria === "Software"){
+
+            software.innerHTML += tarjeta;
+
+        }
+
+    });
+
+}
+
+function agregarCarrito(id){
+
+    let carrito =
+    JSON.parse(
+        localStorage.getItem("carrito")
+    ) || [];
+
+    let productoExistente =
+    carrito.find(
+        item => item.id == id
+    );
+
+    if(productoExistente){
+
+        productoExistente.cantidad++;
+
+    }else{
 
         carrito.push({
-            ...producto,
-            cantidad: 1
+            id:id,
+            cantidad:1
         });
 
     }
@@ -128,18 +105,21 @@ function agregarProducto(id) {
         JSON.stringify(carrito)
     );
 
-    alert("Producto agregado");
+    /*alert("Producto agregado");*/
+    const mensaje =
+    document.getElementById("mensaje");
 
-}
+    mensaje.textContent =
+    "✔ Producto agregado al carrito";
 
-function verDetalle(id) {
+    mensaje.style.display =
+    "block";
 
-    localStorage.setItem(
-        "productoDetalle",
-        id
-    );
+    setTimeout(() => {
 
-    window.location.href =
-        "detalle-producto.html";
+        mensaje.style.display =
+        "none";
+
+    }, 2000);
 
 }

@@ -147,9 +147,18 @@ td{
 }
 
 #cerrarSesion{
-    background:red;
+    background:#1e3a8a;
 }
 
 #cerrarSesion:hover{
-    background:darkred;
+    background:rgb(8, 73, 213);
+}
+
+#mensaje{
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: none;
 }

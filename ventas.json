@@ -1,0 +1,125 @@
+[
+  {
+    "id": 1782272569338,
+    "cliente": "Americo Nicolas ",
+    "fecha": "24/6/2026, 0:40:20",
+    "total": 380000,
+    "productos": [
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782272592523,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 0:43:11",
+    "total": 650000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782274669190,
+    "cliente": null,
+    "fecha": "24/6/2026, 1:17:47",
+    "total": 1030000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782279601807,
+    "cliente": "Nadia Maria",
+    "fecha": "24/6/2026, 2:40:00",
+    "total": 1030000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782279951583,
+    "cliente": "Americo Nicolas ",
+    "fecha": "24/6/2026, 2:45:41",
+    "total": 2240000,
+    "productos": [
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "SSD Kingston 1TB",
+        "precio": 95000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Memoria RAM 16GB DDR4",
+        "precio": 85000,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 1782281820000,
+    "cliente": "Americo Nicolas ",
+    "fecha": "24/6/2026, 3:16:59",
+    "total": 4245000,
+    "productos": [
+      {
+        "nombre": "Motherboard B550",
+        "precio": 180000,
+        "cantidad": 1
+      },
+      {
+        "nombre": "Ryzen 7 5800X",
+        "precio": 380000,
+        "cantidad": 5
+      },
+      {
+        "nombre": "RTX 5070",
+        "precio": 650000,
+        "cantidad": 3
+      },
+      {
+        "nombre": "Memoria RAM 16GB DDR4",
+        "precio": 85000,
+        "cantidad": 2
+      },
+      {
+        "nombre": "Microsoft Office 365",
+        "precio": 45000,
+        "cantidad": 1
+      }
+    ]
+  }
+]
