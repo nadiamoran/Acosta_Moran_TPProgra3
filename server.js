@@ -1,6 +1,7 @@
 const express = require("express");
 
 const fs = require("fs");
+const bcrypt = require("bcrypt");
 
 const app = express();
 
@@ -201,6 +202,32 @@ function guardarVentas(ventas){
 
 }
 
+function leerUsuarios(){
+
+    const datos =
+    fs.readFileSync(
+        "usuarios.json",
+        "utf8"
+    );
+
+    return JSON.parse(datos);
+
+}
+
+function guardarUsuarios(usuarios){
+
+    fs.writeFileSync(
+        "usuarios.json",
+        JSON.stringify(
+            usuarios,
+            null,
+            2
+        )
+    );
+
+}
+
+
 app.post("/api/ventas",(req,res)=>{
 
     const ventas =
@@ -287,6 +314,49 @@ app.put(
     }
 );
 
+
+app.post(
+    "/api/usuarios",
+    async (req,res)=>{
+
+        const usuarios =
+        leerUsuarios();
+
+        const passwordEncriptada =
+        await bcrypt.hash(
+            req.body.password,
+            10
+        );
+
+        const nuevoUsuario = {
+
+            id: Date.now(),
+
+            usuario:
+            req.body.usuario,
+
+            password:
+            passwordEncriptada
+
+        };
+
+        usuarios.push(
+            nuevoUsuario
+        );
+
+        guardarUsuarios(
+            usuarios
+        );
+
+        res.json({
+
+            mensaje:
+            "Usuario creado"
+
+        });
+
+    }
+);
 
 app.listen(PORT, ()=>{
 
