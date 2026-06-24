@@ -1,6 +1,8 @@
 const express = require("express");
 
 const fs = require("fs");
+const path = require("path");
+
 const bcrypt = require("bcrypt");
 
 const app = express();
@@ -284,7 +286,6 @@ app.get("/api/ventas",(req,res)=>{
 
 });
 
-const path = require("path");
 
 const carpetaPDFs =
 path.join(__dirname, "pdfs");
@@ -421,7 +422,7 @@ app.post(
         `;
 
         await page.setContent(html);
-
+        console.log(html.includes("data:image/png;base64"));
         const pdf =
         await page.pdf({
 
@@ -461,6 +462,13 @@ app.post(
             "ticket-pdf.html",
             "utf8"
         );
+
+        const logoBase64 = fs.readFileSync(
+            path.join(__dirname, "logo-2.png"),
+            "base64"
+        );
+
+        const logo = `data:image/png;base64,${logoBase64}`;
 
         let filas = "";
 
@@ -514,6 +522,11 @@ app.post(
         const page =
         await browser.newPage();
 
+        html = html.replace(
+            'src="logo-2.png"',
+            `src="${logo}"`
+        );
+
         await page.setContent(
             html,
             {
@@ -527,29 +540,32 @@ app.post(
                 `ticket_${Date.now()}.pdf`
             );
 
-        await page.pdf({
+        const pdfBuffer = await page.pdf({
 
             path: archivo,
 
-            format:"A4",
+            format: "A4",
 
-            printBackground:true
+            printBackground: true
 
         });
 
         await browser.close();
 
-        res.json({
+        res.setHeader(
+            "Content-Type",
+            "application/pdf"
+        );
 
-            mensaje:
-            "PDF generado",
+        res.setHeader(
+            "Content-Disposition",
+            'attachment; filename="ticket.pdf"'
+        );
 
-            archivo
+        res.send(pdfBuffer);
 
-        });
-
-    }
-);
+            }
+        );
 
 app.put(
     "/api/productos/:id/estado",
