@@ -5,6 +5,8 @@ const bcrypt = require("bcrypt");
 
 const app = express();
 
+const puppeteer = require("puppeteer");
+
 const PORT = 3000;
 
 app.use(express.json());
@@ -282,6 +284,273 @@ app.get("/api/ventas",(req,res)=>{
 
 });
 
+const path = require("path");
+
+const carpetaPDFs =
+path.join(__dirname, "pdfs");
+
+if (!fs.existsSync(carpetaPDFs)) {
+
+    fs.mkdirSync(carpetaPDFs);
+
+}
+
+app.use(
+    "/pdfs",
+    express.static(
+        path.join(__dirname, "pdfs")
+    )
+);
+
+app.post(
+    "/api/generar-ticket",
+    async (req,res)=>{
+
+        const venta =
+        req.body;
+
+        const browser =
+        await puppeteer.launch();
+
+        const page =
+        await browser.newPage();
+
+        let html = `
+
+        <html>
+
+        <head>
+
+        <style>
+
+        body{
+            font-family:Arial;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th,
+        td{
+            border:1px solid black;
+            padding:8px;
+        }
+
+        </style>
+
+        </head>
+
+        <body>
+
+        <h1>N&N TECH</h1>
+
+        <p>
+        Cliente:
+        ${venta.cliente}
+        </p>
+
+        <p>
+        Fecha:
+        ${venta.fecha}
+        </p>
+
+        <hr>
+
+        <table>
+
+        <tr>
+
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+
+        </tr>
+
+        `;
+
+        venta.productos.forEach(p=>{
+
+            html += `
+
+            <tr>
+
+                <td>${p.nombre}</td>
+
+                <td>${p.cantidad}</td>
+
+                <td>
+                $
+                ${(
+                    p.precio *
+                    p.cantidad
+                ).toLocaleString()}
+                </td>
+
+            </tr>
+
+            `;
+
+        });
+
+        html += `
+
+        </table>
+
+        <br>
+
+        <h2>
+
+        Total:
+
+        $
+        ${venta.total.toLocaleString()}
+
+        </h2>
+
+        </body>
+
+        </html>
+
+        `;
+
+        await page.setContent(html);
+
+        const pdf =
+        await page.pdf({
+
+            format:"A4"
+
+        });
+
+        await browser.close();
+
+        res.set({
+
+            "Content-Type":
+            "application/pdf",
+
+            "Content-Disposition":
+            "attachment; filename=ticket.pdf"
+
+        });
+
+        res.send(pdf);
+
+    }
+);
+
+app.post(
+    "/api/generar-pdf",
+    async (req,res) => {
+
+        const venta =
+        req.body;
+
+        const fs =
+        require("fs");
+
+        let html =
+        fs.readFileSync(
+            "ticket-pdf.html",
+            "utf8"
+        );
+
+        let filas = "";
+
+        venta.productos.forEach(p => {
+
+            filas += `
+
+<tr>
+
+<td>${p.nombre}</td>
+
+<td>${p.cantidad}</td>
+
+<td>$${p.precio}</td>
+
+<td>$${p.precio * p.cantidad}</td>
+
+</tr>
+
+`;
+
+        });
+
+        html =
+        html.replace(
+            "{{CLIENTE}}",
+            venta.cliente
+        );
+
+        html =
+        html.replace(
+            "{{FECHA}}",
+            venta.fecha
+        );
+
+        html =
+        html.replace(
+            "{{PRODUCTOS}}",
+            filas
+        );
+
+        html =
+        html.replace(
+            "{{TOTAL}}",
+            venta.total.toLocaleString()
+        );
+
+        const browser =
+        await puppeteer.launch();
+
+        const page =
+        await browser.newPage();
+
+        await page.setContent(
+            html,
+            {
+                waitUntil: "networkidle0"
+            }
+        );
+
+        const archivo =
+            path.join(
+                carpetaPDFs,
+                `ticket_${Date.now()}.pdf`
+            );
+
+        await page.pdf({
+
+            path: archivo,
+
+            format:"A4",
+
+            printBackground:true
+
+        });
+
+        await browser.close();
+
+        res.json({
+
+            mensaje:
+            "PDF generado",
+
+            archivo
+
+        });
+
+    }
+);
+
 app.put(
     "/api/productos/:id/estado",
     (req,res)=>{
@@ -358,6 +627,59 @@ app.post(
     }
 );
 
+app.post(
+    "/api/login",
+    async (req,res)=>{
+
+        const usuarios =
+        leerUsuarios();
+
+        const usuario =
+        usuarios.find(
+            u =>
+            u.usuario ===
+            req.body.usuario
+        );
+
+        if(!usuario){
+
+            return res.status(401).json({
+                mensaje:
+                "Usuario incorrecto"
+            });
+
+        }
+
+        const coincide =
+        await bcrypt.compare(
+
+            req.body.password,
+
+            usuario.password
+
+        );
+
+        if(!coincide){
+
+            return res.status(401).json({
+                mensaje:
+                "ContraseÃ±a incorrecta"
+            });
+
+        }
+
+        res.json({
+
+            mensaje:
+            "Login correcto"
+
+        });
+
+    }
+);
+
+
+
 app.listen(PORT, ()=>{
 
     console.log(
@@ -365,4 +687,3 @@ app.listen(PORT, ()=>{
     );
 
 });
-
