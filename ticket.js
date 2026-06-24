@@ -1,81 +1,39 @@
-<<<<<<< Updated upstream
-const cliente = localStorage.getItem("cliente");
-const productos = JSON.parse(localStorage.getItem("carrito")) || [];
-
-const fecha = new Date();
-const fechaHora = fecha.toLocaleString();
-const numeroTicket = String(Date.now()).slice(-8);
-
-// RENDER EN PANTALLA
-
-document.getElementById("cliente").textContent = cliente;
-document.getElementById("fecha").textContent = fecha.toLocaleDateString();
-
-const contenedor = document.getElementById("productos-ticket");
-
-let subtotalGeneral = 0;
-
-productos.forEach(p => {
-    const subtotal = p.precio * p.cantidad;
-    subtotalGeneral += subtotal;
-
-    contenedor.innerHTML += `
-        <br>
-        <p>${p.nombre} x ${p.cantidad} = $${subtotal.toLocaleString()}</p>
-        <br>
-        
-    `;
-});
-
-document.getElementById("total-ticket").textContent =
-
-    "Total: $" + subtotalGeneral.toLocaleString();
-
-
-
-
-// FACTURA pdf
-
-document.getElementById("btnPDF").addEventListener("click", () => {
-
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF();
-=======
+ticket con GuardarVentas OK
 const cliente =
-localStorage.getItem("cliente");
+    localStorage.getItem("cliente");
 
 const carrito =
-JSON.parse(
-    localStorage.getItem("carrito")
-) || [];
+    JSON.parse(
+        localStorage.getItem("carrito")
+    ) || [];
 
 const fecha =
-new Date();
+    new Date();
 
 const fechaHora =
-fecha.toLocaleString();
+    fecha.toLocaleString();
 
 const numeroTicket =
-String(Date.now()).slice(-8);
+    String(Date.now()).slice(-8);
 
 const contenedor =
-document.getElementById(
-    "productos-ticket"
-);
+    document.getElementById(
+        "productos-ticket"
+    );
 
 let subtotalGeneral = 0;
 
 let productosVenta = [];
 
-async function cargarTicket(){
+async function cargarTicket() {
 
     const respuesta =
-    await fetch(
-        "http://localhost:3000/api/productos"
-    );
+        await fetch(
+            "http://localhost:3000/api/productos"
+        );
 
     const productos =
-    await respuesta.json();
+        await respuesta.json();
 
     document.getElementById(
         "cliente"
@@ -84,36 +42,36 @@ async function cargarTicket(){
     document.getElementById(
         "fecha"
     ).textContent =
-    fecha.toLocaleDateString();
+        fecha.toLocaleDateString();
 
     contenedor.innerHTML = "";
 
     carrito.forEach(item => {
 
         const producto =
-        productos.find(
-            p => p.id == item.id
-        );
+            productos.find(
+                p => p.id == item.id
+            );
 
-        if(producto){
+        if (producto) {
 
             const subtotal =
-            producto.precio *
-            item.cantidad;
+                producto.precio *
+                item.cantidad;
 
             subtotalGeneral +=
-            subtotal;
+                subtotal;
 
             productosVenta.push({
 
                 nombre:
-                producto.nombre,
+                    producto.nombre,
 
                 precio:
-                producto.precio,
+                    producto.precio,
 
                 cantidad:
-                item.cantidad
+                    item.cantidad
 
             });
 
@@ -137,81 +95,16 @@ async function cargarTicket(){
 
             `;
         }
->>>>>>> Stashed changes
 
-    let y = 14;
-
-    pdf.setFillColor(20, 20, 20);
-    pdf.rect(0, 0, 220, 28, "F");
-    pdf.setTextColor(255, 255, 255);
-    pdf.setFont("helvetica", "bold");
-    pdf.setFontSize(18);
-    pdf.text("N&N TECH STORE", 105, 14, { align: "center" });
-    pdf.setFontSize(9);
-    pdf.setFont("helvetica", "normal");
-    pdf.text("Tecnología | Hardware | Software", 105, 22, { align: "center" });
-
-    pdf.setTextColor(0, 0, 0);
-    y = 40;
-
-    // INFO TICKET
-
-    pdf.setFontSize(10);
-
-    pdf.text(`Ticket #: ${numeroTicket}`, 14, y);
-    pdf.text(`Fecha: ${fechaHora}`, 14, y + 6);
-    pdf.text(`Cliente: ${cliente}`, 14, y + 12);
-
-    y += 22;
-
-    pdf.line(14, y, 196, y);
-
-    y += 10;
-
-    pdf.setFont("helvetica", "bold");
-    pdf.text("Producto", 14, y);
-    pdf.text("Cant.", 130, y);
-    pdf.text("Subtotal", 165, y);
-
-    pdf.setFont("helvetica", "normal");
-
-    y += 4;
-    pdf.line(14, y, 196, y);
-
-    //PRODUCTOS
-
-    y += 8;
-
-    productos.forEach(p => {
-
-        const subtotal = p.precio * p.cantidad;
-
-        pdf.text(p.nombre.substring(0, 35), 14, y);
-        pdf.text(String(p.cantidad), 135, y);
-        pdf.text(`$${subtotal.toLocaleString()}`, 165, y);
-
-        y += 7;
     });
 
-<<<<<<< Updated upstream
-    y += 4;
-    pdf.line(14, y, 196, y);
-
-    //TOTALES
-
-    const iva = subtotalGeneral * 0.21;
-    const totalFinal = subtotalGeneral + iva;
-
-    y += 10;
-
-=======
     document.getElementById(
         "total-ticket"
     ).textContent =
 
-    "Total: $" +
+        "Total: $" +
 
-    subtotalGeneral.toLocaleString();
+        subtotalGeneral.toLocaleString();
 
 }
 
@@ -219,155 +112,71 @@ cargarTicket();
 
 // FACTURA pdf
 
-document.getElementById("btnPDF").addEventListener("click", () => {
+document
+    .getElementById("btnPDF")
+    .addEventListener(
 
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF();
+        "click",
 
-    let y = 14;
+        async () => {
 
-    pdf.setFillColor(20, 20, 20);
-    pdf.rect(0, 0, 220, 28, "F");
-    pdf.setTextColor(255, 255, 255);
-    pdf.setFont("helvetica", "bold");
-    pdf.setFontSize(18);
-    pdf.text("N&N TECH STORE", 105, 14, { align: "center" });
-    pdf.setFontSize(9);
-    pdf.setFont("helvetica", "normal");
-    pdf.text("Tecnología | Hardware | Software", 105, 22, { align: "center" });
+            const respuesta =
+                await fetch(
 
-    pdf.setTextColor(0, 0, 0);
-    y = 40;
+                    "http://localhost:3000/api/generar-pdf",
 
-    // INFO TICKET
+                    {
+                        method: "POST",
 
-    pdf.setFontSize(10);
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
-    pdf.text(`Ticket #: ${numeroTicket}`, 14, y);
-    pdf.text(`Fecha: ${fechaHora}`, 14, y + 6);
-    pdf.text(`Cliente: ${cliente}`, 14, y + 12);
+                        body: JSON.stringify({
 
-    y += 22;
+                            cliente,
 
-    pdf.line(14, y, 196, y);
+                            fecha: fechaHora,
 
-    y += 10;
+                            total: subtotalGeneral,
 
-    pdf.setFont("helvetica", "bold");
-    pdf.text("Producto", 14, y);
-    pdf.text("Cant.", 130, y);
-    pdf.text("Subtotal", 165, y);
+                            productos: productosVenta
 
-    pdf.setFont("helvetica", "normal");
+                        })
 
-    y += 4;
-    pdf.line(14, y, 196, y);
+                    }
 
-    //PRODUCTOS
+                );
 
-    y += 8;
+            const datos =
+                await respuesta.json();
 
-productosVenta.forEach(p => {
+            alert(
+                "PDF generado correctamente"
+            );
 
-    const subtotal =
-    p.precio *
-    p.cantidad;
+            console.log(datos);
 
-    pdf.text(
-        p.nombre.substring(0,35),
-        14,
-        y
-    );
+            //AGREGE GUARDAR VENTAS
 
-    pdf.text(
-        String(p.cantidad),
-        135,
-        y
-    );
-
-    pdf.text(
-        `$${subtotal.toLocaleString()}`,
-        165,
-        y
-    );
-
-    y += 7;
-});
-
-    y += 4;
-    pdf.line(14, y, 196, y);
-
-    //TOTALES
-
-    const iva = subtotalGeneral * 0.21;
-    const totalFinal = subtotalGeneral + iva;
-
-    y += 10;
-
->>>>>>> Stashed changes
-    pdf.setFont("helvetica", "normal");
-    pdf.text(`Subtotal:`, 140, y);
-    pdf.text(`$${subtotalGeneral.toLocaleString()}`, 165, y);
-
-    y += 6;
-    pdf.text(`IVA (21%):`, 140, y);
-    pdf.text(`$${iva.toLocaleString()}`, 165, y);
-
-    y += 10;
-
-    pdf.setFont("helvetica", "bold");
-    pdf.setFontSize(13);
-
-    pdf.text(`TOTAL:`, 140, y);
-    pdf.text(`$${totalFinal.toLocaleString()}`, 165, y);
-
-  
-    y += 20;
-
-    pdf.setFont("helvetica", "normal");
-    pdf.setFontSize(9);
-
-    pdf.text("Gracias por confiar en N&N Tech Store", 105, y, {
-        align: "center"
-    });
-
-    y += 6;
-
-    pdf.text("Soporte: soporte@nntech.com | +54 11 5555-5555", 105, y, {
-        align: "center"
-    });
-
-<<<<<<< Updated upstream
-=======
-    fetch(
-    "http://localhost:3000/api/ventas",
-    {
-        method:"POST",
-
-        headers:{
-            "Content-Type":
-            "application/json"
-        },
-
-        body:JSON.stringify({
-
-            cliente:cliente,
-
-            fecha:fechaHora,
-
-            total:subtotalGeneral,
-
-            productos:productosVenta
-
-        })
-
-    }
-);
-
->>>>>>> Stashed changes
-    pdf.save(`NNTicket_${numeroTicket}.pdf`);
-});
-
+            fetch(
+                "http://localhost:3000/api/ventas",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+                    body: JSON.stringify({
+                        cliente: cliente,
+                        fecha: fechaHora,
+                        total: subtotalGeneral,
+                        productos: productosVenta
+                    })
+                }
+            );
+        });
 
 
 // SALIR
