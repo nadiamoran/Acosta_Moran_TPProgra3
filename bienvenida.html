@@ -2,40 +2,55 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> N&NTech</title>
+
+    <title>N&N Tech</title>
 
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
     <header>
-        <img src="logo.png" alt="Logo">
-        <h1> N&NTech</h1>
 
+        <h1>N&N Tech</h1>
         <p>
             Nadia Morán y Americo Acosta - Integrador Programación III
         </p>
+
     </header>
 
-    <main class="bienvenida">
+    <main>
 
-        <h2>Bienvenido a N&NTech</h2>
+        <div class="container">
 
-        <p>
-            Tienda de Hardware y Software
-        </p>
+            <h2>Bienvenido</h2>
 
-        <input
-            type="text"
-            id="nombre"
-            placeholder="Ingrese su nombre">
+            <p>
+                Ingrese su nombre para comenzar la compra.
+            </p>
 
-        <button id="btnContinuar">
-            Continuar
-        </button>
+            <br>
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Ingrese su nombre">
+
+            <button id="btnContinuar">
+                Continuar
+            </button>
+
+            <br><br>
+
+            <button onclick="window.location.href='login.html'">
+                Ingresar como Administrador
+            </button>
+
+        </div>
 
     </main>
 
