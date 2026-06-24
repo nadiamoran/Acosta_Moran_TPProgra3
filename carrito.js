@@ -33,42 +33,48 @@ async function mostrarCarrito(){
         if(producto){
             total += producto.precio * item.cantidad;
             contenedor.innerHTML += `
-            <div class="card">
+            <div class="carrito-item">
                 <img
                 src="${producto.imagen}"
                 width="150"
                 >
-                <h3>
+
+                <div class="carrito-info">
+                <h3 class="nombre-producto"> 
                     ${producto.nombre}
                 </h3>
                 <p>
                     Categoría:
                     ${producto.categoria}
                 </p>
-
                 <p>
                     Precio:
-                    $${producto.precio}
+                    $${producto.precio.toLocaleString("es-AR")}
                 </p>
-                      <p>
-                        <button
-                            onclick="restar(${index})"
-                        >
-                            -
-                        </button>
-                        <strong>
-                                
-                                    Cantidad:
-                                    ${item.cantidad}
-                                    
-                        </strong>
-                        <button
-                            onclick="sumar(${index})">+
-                        </button>
-                    </p>
-                    <p>
+                </div>
+                <div class="control-cantidad">
+                    <button
+                        class="btn-cantidad"
+                        onclick="restar(${index})"
+                    >
+                        -
+                    </button>
+
+                    <span class="cantidad-numero">
+                        ${item.cantidad}
+                    </span>
+
+                    <button
+                        class="btn-cantidad"
+                        onclick="sumar(${index})"
+                    >
+                        +
+                    </button>
+
+                </div>
+                    <p class="subtotal">
                     Subtotal:
-                    $${producto.precio * item.cantidad}
+                    $${(producto.precio * item.cantidad).toLocaleString("es-AR")}
                 </p>
                 <button
                 onclick="eliminar(${index})">
@@ -81,7 +87,7 @@ async function mostrarCarrito(){
     });
 
     totalHTML.textContent =
-    "Total: $" + total;
+    "Total: $" + total.toLocaleString("es-AR");
 }
 function sumar(index){
 
@@ -95,7 +101,7 @@ function sumar(index){
 }
 function restar(index){
     if(
-        carrito[index].cantidad > 1
+        carrito[index].cantidad >1
     ){
         carrito[index].cantidad--;
     }

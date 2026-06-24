@@ -50,7 +50,7 @@ function mostrarProductos(productos){
             <p>$${producto.precio}</p>
 
             <button
-                onclick="agregarCarrito(${producto.id})"
+                onclick="agregarCarrito(${producto.id}, '${producto.nombre}')"
             >
                 Agregar al carrito
             </button>
@@ -75,7 +75,7 @@ function mostrarProductos(productos){
 
 }
 
-function agregarCarrito(id){
+function agregarCarrito(id,nombre){
 
     let carrito =
     JSON.parse(
@@ -110,7 +110,7 @@ function agregarCarrito(id){
     document.getElementById("mensaje");
 
     mensaje.textContent =
-    "✔ Producto agregado al carrito";
+    "✔" + nombre + " agregado al carrito";
 
     mensaje.style.display =
     "block";
@@ -121,5 +121,28 @@ function agregarCarrito(id){
         "none";
 
     }, 2000);
+
+    function actualizarCarrito(){
+
+    const carrito =
+    JSON.parse(
+        localStorage.getItem("carrito")
+    ) || [];
+
+    const cantidad =
+    carrito.reduce(
+        (acum,item)=>
+        acum + item.cantidad,
+        0
+    );
+
+    document.getElementById(
+        "btnCarrito"
+    ).textContent =
+
+    `🛒 Carrito (${cantidad})`;
+
+}
+actualizarCarrito();
 
 }

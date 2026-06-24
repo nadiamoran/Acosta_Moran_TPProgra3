@@ -1,70 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Carrito</title>
-
     <link rel="stylesheet" href="styles.css">
-
 </head>
-
 <body>
-
     <header>
-
-
+        <div class="info-tp">Nadia Morán y Américo Acosta - Integrador Programación III</div>
         <img
         src="logo-2.png"
         alt="Logo N&N Tech"
         class="logo"
         >
-        <p>
-            Nadia Morán y Americo Acosta - Integrador Programación III
-        </p>
+        <nav class="menu">
 
-        <nav>
-
+             <a href="bienvenida.html">
+                Inicio
+            </a>
             <a href="productos.html">
                 Productos
             </a>
 
+            <div class="acciones-header">
+                <a href="login.html" class="btn-admin">
+                    Administrador
+                </a>
+
+           
         </nav>
-
+        <button id="btnTema">🌙 Tema Oscuro</button>
     </header>
-
     <main>
+        <div class="carrito-layout">
 
-        <div class="container">
+    <div id="carrito-container">
+    </div>
 
-            <h2>Carrito</h2>
+    <div class="resumen-compra">
 
-            <div id="carrito-container">
+        <h3>Total a pagar</h3>
 
-            </div>
+        <p id="total">
+            $0
+        </p>
 
-            <h3 id="total">
-                Total: $0
-            </h3>
+        <button id="btnFinalizar">
+            Finalizar Compra
+        </button>
 
+    </div>
+
+</div>
+        
             <button onclick="window.location.href='productos.html'">
                 Seguir Comprando
             </button>
-
             <button id="btnFinalizar">
                 Finalizar Compra
             </button>
-
         </div>
-
     </main>
-
+    <script src="tema.js"></script>
     <script src="carrito.js"></script>
-
 </body>
-
 </html>

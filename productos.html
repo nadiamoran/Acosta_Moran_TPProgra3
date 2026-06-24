@@ -1,74 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Productos - N&N Tech</title>
-
     <link rel="stylesheet" href="styles.css">
-
 </head>
-
 <body>
-
     <header>
+        <div class="info-tp">Nadia Morán y Américo Acosta - Integrador Programación III</div>
 
         <img
         src="logo-2.png"
         alt="Logo N&N Tech"
         class="logo"
         >
-        <p>
-            Nadia Morán y Americo Acosta - Integrador Programación III
-        </p>
-        <nav>
-
-            <a href="productos.html">Productos</a>
-            
-            <a href="carrito.html" class="carrito-link">
-            🛒 Carrito
+        <nav class="menu">
+             <a href="bienvenida.html">
+                Inicio
             </a>
 
-            <a href="login.html">Administrador</a>
+            <a href="productos.html">
+                Productos
+            </a>
 
+            <div class="acciones-header">
+                <a href="login.html" class="btn-admin">
+                    Administrador
+                </a>
+
+                
         </nav>
+        <a href="carrito.html" class="carrito-link" id="btnCarrito">🛒 Carrito (0)</a>
+    </div>
 
+    <button id="btnTema">🌙</button>
     </header>
-
     <main>
-
         <div class="container">
-
             <h2>Productos</h2>
-
             <p id="mensaje"></p>
-
             <p id="saludo"></p>
-
             <h3>Hardware</h3>
-
             <div id="hardware" class="productos"></div>
-
             <br>
-
             <h3>Software</h3>
-
             <div id="software" class="productos"></div>
-
             <br>
-
             <button onclick="window.location.href='carrito.html'">
                 Ver Carrito
             </button>
-
         </div>
-
     </main>
+    <script src="tema.js"></script>
     <script src="productos.js"></script>
-
 </body>
-
 </html>
