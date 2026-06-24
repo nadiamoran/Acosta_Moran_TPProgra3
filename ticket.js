@@ -20,6 +20,7 @@ const contenedor =
         "productos-ticket"
     );
 
+
 let subtotalGeneral = 0;
 
 let productosVenta = [];
@@ -106,71 +107,78 @@ cargarTicket();
 
 // FACTURA pdf
 
-document
-    .getElementById("btnPDF")
-    .addEventListener(
 
-        "click",
+document.getElementById("btnPDF").addEventListener("click", async () => {
 
-        async () => {
+    const respuesta = await fetch("http://localhost:3000/api/generar-pdf", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            cliente,
+            fecha: fechaHora,
+            total: subtotalGeneral,
+            productos: productosVenta
+        })
+    });
 
-            const respuesta =
-                await fetch(
+    if (!respuesta.ok) {
+        alert("Error generando PDF");
+        return;
+    }
 
-                    "http://localhost:3000/api/generar-pdf",
+    const blob = await respuesta.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
 
-                    {
-                        method: "POST",
+    a.href = url;
+    a.download = "ticket.pdf";
 
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
 
-                        body: JSON.stringify({
+    window.URL.revokeObjectURL(url);
 
-                            cliente,
+    const mensaje =
+            document.getElementById("mensaje");
 
-                            fecha: fechaHora,
+        mensaje.textContent =
+            "✔ Factura generada correctamente";
 
-                            total: subtotalGeneral,
+        mensaje.style.display =
+            "block";
 
-                            productos: productosVenta
+        setTimeout(() => {
 
-                        })
+            mensaje.style.display =
+                "none";
 
-                    }
+        }, 5000);
 
-                );
 
-            const datos =
-                await respuesta.json();
+//GUARDAR VENTAS
 
-            alert(
-                "PDF generado correctamente"
-            );
+    fetch(
+        "http://localhost:3000/api/ventas",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+            body: JSON.stringify({
+                cliente: cliente,
+                fecha: fechaHora,
+                total: subtotalGeneral,
+                productos: productosVenta
+            })
+        }
+    );
 
-            console.log(datos);
+});
 
-            //AGREGE GUARDAR VENTAS
-
-            fetch(
-                "http://localhost:3000/api/ventas",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-                    body: JSON.stringify({
-                        cliente: cliente,
-                        fecha: fechaHora,
-                        total: subtotalGeneral,
-                        productos: productosVenta
-                    })
-                }
-            );
-        });
 
 
 // SALIR

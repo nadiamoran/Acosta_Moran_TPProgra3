@@ -8,9 +8,17 @@ boton.addEventListener("click", () => {
 
     if(nombre.trim() === ""){
 
-        alert(
-            "Debe ingresar un nombre"
-        );
+        const mensajedos =
+            document.getElementById("mensajedos");
+
+        mensajedos.textContent =
+            "X Ingresar Nombre";
+        mensajedos.style.display =
+            "block";
+        setTimeout(() => {
+            mensajedos.style.display =
+                "none";
+        }, 2000);
 
         return;
     }
