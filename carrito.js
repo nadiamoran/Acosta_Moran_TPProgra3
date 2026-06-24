@@ -1,106 +1,141 @@
 let carrito =
-    JSON.parse(localStorage.getItem("carrito"))
-    || [];
+JSON.parse(
+    localStorage.getItem("carrito")
+) || [];
 
 const contenedor =
-    document.getElementById("carrito-container");
+document.getElementById(
+    "carrito-container"
+);
 
 const totalHTML =
-    document.getElementById("total");
+document.getElementById(
+    "total"
+);
 
-function mostrarCarrito() {
+async function mostrarCarrito(){
+
+    const respuesta =
+    await fetch(
+        "http://localhost:3000/api/productos"
+    );
+
+    const productos =
+    await respuesta.json();
 
     contenedor.innerHTML = "";
 
     let total = 0;
 
-    carrito.forEach((producto, indice) => {
+    if(carrito.length === 0){
 
-        total +=
-            producto.precio *
-            producto.cantidad;
+        contenedor.innerHTML =
+        "<p>Carrito vacío</p>";
 
-        contenedor.innerHTML += `
+        totalHTML.textContent =
+        "Total: $0";
 
-        <div class="card">
+        return;
+    }
 
-            <h3>${producto.nombre}</h3>
+    carrito.forEach((item,index)=>{
 
-            <p>Precio: $${producto.precio}</p>
+        const producto =
+        productos.find(
+            p => p.id == item.id
+        );
 
-            <p>Cantidad: ${producto.cantidad}</p>
+        if(producto){
 
-            <button onclick="sumar(${indice})">
-                +
-            </button>
+            total += producto.precio * item.cantidad;
 
-            <button onclick="restar(${indice})">
-                -
-            </button>
+            contenedor.innerHTML += `
 
-            <button onclick="eliminar(${indice})">
+            <div class="card">
+
+                <img
+                src="${producto.imagen}"
+                width="150"
+                >
+
+                <h3>
+                    ${producto.nombre}
+                </h3>
+
+                <p>
+                    Categoría:
+                    ${producto.categoria}
+                </p>
+
+                <p>
+                    Precio:
+                    $${producto.precio}
+                </p>
+
+                <p>
+                    Cantidad:
+                    ${item.cantidad}
+                    </p>
+
+                    <p>
+                    Subtotal:
+                    $${producto.precio * item.cantidad}
+                </p>
+
+                <button
+                onclick="eliminar(${index})"
+                >
                 Eliminar
-            </button>
+                </button>
 
-        </div>
-        `;
+            </div>
+
+            <br>
+
+            `;
+        }
+
     });
 
     totalHTML.textContent =
-        `Total: $${total}`;
+    "Total: $" + total;
+
+}
+
+function eliminar(index){
+
+    carrito.splice(index,1);
 
     localStorage.setItem(
         "carrito",
         JSON.stringify(carrito)
     );
-}
-
-function sumar(indice) {
-
-    carrito[indice].cantidad++;
 
     mostrarCarrito();
-}
 
-function restar(indice) {
-
-    if (carrito[indice].cantidad > 1) {
-
-        carrito[indice].cantidad--;
-
-    }
-
-    mostrarCarrito();
-}
-
-function eliminar(indice) {
-
-    carrito.splice(indice, 1);
-
-    mostrarCarrito();
 }
 
 document
-    .getElementById("btnFinalizar")
-    .addEventListener("click", () => {
+.getElementById(
+    "btnFinalizar"
+)
+.addEventListener(
+    "click",
+    ()=>{
 
-        if (carrito.length === 0) {
+        if(carrito.length === 0){
 
-            alert("El carrito está vacío");
+            alert(
+                "Carrito vacío"
+            );
+
             return;
         }
 
-        const confirmar =
-            confirm(
-                "¿Desea finalizar la compra?"
-            );
+        window.location.href =
+        "ticket.html";
 
-        if (confirmar) {
-
-            window.location.href =
-                "ticket.html";
-        }
-
-    });
+    }
+);
 
 mostrarCarrito();
